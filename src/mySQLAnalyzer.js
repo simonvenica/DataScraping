@@ -1,10 +1,9 @@
 const MySQLConnector = require('./MySQLConnector');
 
-function AnalyzeData(pricesList) {
+async function AnalyzeData(pricesList) {
 
-
-    const Conn = MySQLConnector.connectMySQL();
-
+    const Conn = await MySQLConnector.connectMySQL();
+    MySQLConnector.queryMySQL("select * from asdasd limit 1",Conn);
 }
 
 module.exports = {AnalyzeData}

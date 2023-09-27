@@ -18,7 +18,7 @@ async function getPrices() {
         height: 800
     });
 
-    //Scrolls to the bottom of the website.
+    //Scrolls to the bottom of the website, this is necessary to get all the data and not just the data from the first view.
     await autoScroller.autoScroll(page);
 
     //Makes a list with the main cryptocurrencies data (name, price and market cap)

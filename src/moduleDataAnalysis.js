@@ -7,7 +7,7 @@ function dataAnalysis(dataList,symbolList){
     symbolList = symbolList.slice(6);
 
     if (dataList.length != 400 || symbolList.length != 100){ //2° security check.
-        console.log("Error with lists length");
+        console.warning("Error with lists length");
         console.log(dataList.length);
         console.log(symbolList.length);
     };
