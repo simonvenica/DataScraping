@@ -4,11 +4,9 @@ const MySQLAnalyzer = require('./mySQLAnalyzer');
 
 async function main() {
 
-    pricesList = [1,2,3,4];
+    const pricesTable = await cryptoPrices.getPrices();
 
-    //const pricesList = await cryptoPrices.getPrices();
-
-    MySQLAnalyzer.AnalyzeData(pricesList);
+    MySQLAnalyzer.uploadData(pricesTable);
 
 };
 

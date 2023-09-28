@@ -15,21 +15,18 @@ function connectMySQL() {
     password: databasePassword,
     database: databaseName,
   });
-
-  return new Promise((resolve, reject) => {
-    connection.connect((err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve('Successfully connected to the MySQL database');
-      }
-    });
+  connection.connect((error) => {
+    if (error) {
+      console.error('Error connecting to the Database:', error);
+      throw error;
+    }
   });
+  
+  return connection;
 }
 
 // Function to execute an SQL query
 function queryMySQL(queryString, connection) {
-  console.log(connection);
   return new Promise((resolve, reject) => {
     connection.query(queryString, (err, results) => {
       if (err) {
