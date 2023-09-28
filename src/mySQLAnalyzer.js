@@ -5,9 +5,7 @@ async function uploadData(pricesTable) {
     let Conn = MySQLConnector.connectMySQL();
     const tableName = createTableName(); 
     createTable(Conn,tableName);
-    insertData(Conn,pricesTable,tableName);
-    console.log("marselo");
-    await MySQLConnector.closeMySQL(Conn);    
+    insertData(Conn,pricesTable,tableName); 
 };
 
 //Create a new table to insert the data.
@@ -31,7 +29,7 @@ async function insertData(Conn,pricesTable,tableName){
         if (isNaN(varPrice)){
             varPrice = "0";//Some Cryptocurrencies values are so low that the website shows values like $0.0...03806, it should be corrected in the future.
         } 
-        const queryInsert = "INSERT INTO " + tableName + " (symbol, name, price, market_cap) select '" + varSymbol + "','" + varName + "'," + varPrice + "," + varMarket_cap +";";
+        const queryInsert = "INSERT INTO " + tableName + " (symbol, name, price, market_cap) SELECT '" + varSymbol + "','" + varName + "'," + varPrice + "," + varMarket_cap +";";
         await MySQLConnector.queryMySQL(queryInsert,Conn);
         console.log("Uploaded "+i+"/100");
         i++;

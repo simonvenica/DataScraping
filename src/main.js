@@ -3,7 +3,7 @@ const mySQLAnalyzer = require('./mySQLAnalyzer');
 
 async function main() {
     const pricesTable = await cryptoPrices.getPrices();
-    MySQLAnalyzer.uploadData(pricesTable);
+    mySQLAnalyzer.uploadData(pricesTable);
 };
 
 main();
