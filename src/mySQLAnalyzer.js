@@ -10,14 +10,12 @@ async function uploadData(pricesTable) {
     await MySQLConnector.closeMySQL(Conn);    
 };
 
-
 //Create a new table to insert the data.
 async function createTable(Conn,tableName){
     const queryCreate = "CREATE TABLE " + tableName + " (id INT AUTO_INCREMENT PRIMARY KEY, symbol VARCHAR(100), name VARCHAR(100), price FLOAT(20), market_cap DOUBLE);";
     await MySQLConnector.queryMySQL(queryCreate,Conn);
     setTimeout(function() {}, 3000);
 };
-
 
 //Iterate the list and insert the data in the table created in the previous step.
 async function insertData(Conn,pricesTable,tableName){
@@ -40,7 +38,6 @@ async function insertData(Conn,pricesTable,tableName){
     };
     process.exit()
 };
-
 
 function createTableName(){
     var timeStamp = new Date().getTime().toString().slice(4,-2); //Used to create the name of the different tables

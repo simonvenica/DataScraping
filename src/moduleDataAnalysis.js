@@ -19,7 +19,6 @@ function dataAnalysis(dataList,symbolList){
     return correctedTable;
 ;}
 
-
 function correctList(dataList,symbolList){ //Separates the concatenated data (Crypto name and Symbol), remove "," and "$" from the prices and erase the empty field from the list.
     let list = [];
     let i = 0;
