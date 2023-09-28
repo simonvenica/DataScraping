@@ -10,7 +10,7 @@ async function uploadData(pricesTable) {
 
 //Create a new table to insert the data.
 async function createTable(Conn,tableName){
-    const queryCreate = "CREATE TABLE " + tableName + " (id INT AUTO_INCREMENT PRIMARY KEY, symbol VARCHAR(100), name VARCHAR(100), price FLOAT(20), market_cap DOUBLE);";
+    const queryCreate = "CREATE TABLE " + tableName + " (id INT AUTO_INCREMENT PRIMARY KEY, symbol VARCHAR(100), name VARCHAR(100), price FLOAT(20), volume DOUBLE);";
     await MySQLConnector.queryMySQL(queryCreate,Conn);
     setTimeout(function() {}, 3000);
 };
